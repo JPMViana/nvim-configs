@@ -9,13 +9,15 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<C-l>",      -- aceite a sugestão fantasma
+          accept = "<C-l>",       -- aceitar sugestão
           next = "<M-]>",        -- próxima sugestão
           prev = "<M-[>",        -- sugestão anterior
           dismiss = "<C-]>",     -- dispensar
         },
       },
-      panel = { enabled = true }, -- :Copilot panel
+      panel = {
+        enabled = true, -- habilita o painel
+      }, 
       filetypes = {
         -- habilite/desabilite por linguagem se quiser
         -- ["*"] = true,

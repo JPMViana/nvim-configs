@@ -15,7 +15,13 @@ return {
     cmp.setup({
       mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+          ["<esc>"] = cmp.mapping({
+              i = cmp.mapping.abort(),
+              c = cmp.mapping.close(),
+          }),
+          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       }),
       sources = cmp.config.sources({
           { name = "nvim_lsp" },
