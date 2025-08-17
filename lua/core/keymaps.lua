@@ -15,7 +15,7 @@ km.set('n', '<leader>t', '<cmd>terminal<cr>', { silent = true, desc = 'Open term
 km.set('t', '<leader>t', '<C-\\><C-n><cmd>terminal<cr>', { silent = true, desc = 'Open terminal in normal mode' })
 
 -- Atalhos para abrir o explorador de arquivos
-km.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', { silent = true, desc = 'Toggle File Tree' })
+km.set('n', '<leader>e', ':NvimTreeToggle<cr>', { silent = true, desc = 'Toggle File Tree' })
 
 -- Redimensionar janelas
 km.set('n', '<C-Up>', '<cmd>resize -2<cr>', { silent = true, desc = 'Resize window up' })

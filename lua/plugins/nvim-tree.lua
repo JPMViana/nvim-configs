@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*", -- Atualiza para a versão mais recente
-  lazy = true, -- Carrega o plugin somente quando necessário
+  lazy = false, -- Carrega o plugin somente quando necessário
   dependencies = {
     "nvim-tree/nvim-web-devicons", -- Ícones bonitinhos para arquivos
   },
