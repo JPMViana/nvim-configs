@@ -7,7 +7,7 @@ km.set('n', '<esc>', '<cmd>nohlsearch<cr>', { silent = true, desc = 'Clear searc
 -- Atalhos para salvar e sair
 km.set('n', '<leader>w', '<cmd>w<cr>', { silent = true, desc = 'Save file' })
 km.set('n', '<leader>q', '<cmd>q<cr>', { silent = true, desc = 'Quit Neovim' })
-km.set('n', '<leader>qq', '<cmd>qa<cr>', { silent  = true, desc = 'Quit all files' })
+km.set('n', '<leader>qq', '<cmd>qa!<cr>', { silent  = true, desc = 'Quit all files' })
 km.set('n', '<leader>wq', '<cmd>wq<cr>', { silent = true, desc = 'Save and quit' }) 
 
 -- Atalhos para abrir o terminal
@@ -15,7 +15,15 @@ km.set('n', '<leader>t', '<cmd>terminal<cr>', { silent = true, desc = 'Open term
 km.set('t', '<leader>t', '<C-\\><C-n><cmd>terminal<cr>', { silent = true, desc = 'Open terminal in normal mode' })
 
 -- Atalhos para abrir o explorador de arquivos
-km.set('n', '<leader>e', ':NvimTreeToggle<cr>', { silent = true, desc = 'Toggle File Tree' })
+km.set('n', '<leader>e', function()
+  local api = require("nvim-tree.api")
+  if api.tree.is_visible() then
+    api.tree.focus()   -- já aberto → só move o foco
+  else
+    api.tree.open()    -- fechado → abre
+  end
+end, { silent = true, desc = 'Toggle/Focus File Tree' })
+
 
 -- Redimensionar janelas
 km.set('n', '<C-Up>', '<cmd>resize -2<cr>', { silent = true, desc = 'Resize window up' })
